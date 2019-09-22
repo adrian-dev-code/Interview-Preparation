@@ -1,0 +1,37 @@
+//Given a string, find the first non-repeating character 
+//in it and return it's index. If it doesn't exist, return -1.
+
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+int returnIndex(const string &s, map<char, int> harta)
+{
+	for (short i = 0; i < s.length(); i++)
+	{
+		if (harta[s[i]] == 1) {
+			return i;
+			break;
+		}
+	}
+
+	return -1;
+}
+
+int main()
+{
+	map<char, int> harta;
+
+	string s = "amazon";
+	
+	for (short i = 0; i < s.length(); i++)
+	{
+		harta[s[i]]++;
+	}
+
+	cout << returnIndex(s, harta);
+
+	return 0;
+}
