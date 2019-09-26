@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int reverse(int x) {
+	bool ok = false;
+    if (x == INT_MIN)
+        return 0;
+        
+	if (x < 0) {
+		x = -x;
+		ok = true;
+	}
+	int p = 1, nrnou = 0;
+	while (x) {
+		if ((long)(nrnou) * 10 > INT_MAX)
+		{
+			return 0;
+		}
+		else
+		{
+			nrnou = nrnou * 10 + x % 10;
+			x = x / 10;
+		}
+	}
+
+	if (ok)
+		return -nrnou;
+
+	return nrnou;
+    }
+};
