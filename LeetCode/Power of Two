@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+       double nr;
+       if (n==0) return false;
+       else{
+           nr=log2(n);
+           if (floor(nr)==ceil(nr)) return true;
+       }
+        
+        
+        return false;
+    }
+};
