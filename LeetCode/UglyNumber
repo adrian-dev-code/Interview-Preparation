@@ -1,0 +1,19 @@
+class Solution {
+public:
+	bool isUgly(int num) {
+		int myvec[] = { 2,3,5 };
+		int i = 0;
+		while (num) {
+			while (num % myvec[i] == 0) {
+				num = num / myvec[i];
+			}
+			i++;
+
+			if (i == 3 && num != 0) break;
+		}
+
+		if (num == 1)return true;
+
+		return false;
+	}
+};
