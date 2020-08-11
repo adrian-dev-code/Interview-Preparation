@@ -1,0 +1,57 @@
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+
+        const string row1 = "qwertyuiopQWERTYUIOP";
+        const string row2 = "asdfghjklASDFGHJKL";
+        const string row3 = "zxcvbnmZXCVBNM";
+
+        vector <string> words2;
+
+        for (auto x : words)
+        {
+            if (x.size() == 1)
+            {
+                words2.push_back(x);
+                continue;
+            }
+
+            if (row1.find(x[0]) != std::string::npos)
+            {
+                for (int i = 1; i < x.size(); i++)
+                {
+                    if (row1.find(x[i]) == std::string::npos) {
+                        break;
+                    }
+                    else if (i == x.size() - 1)
+                        words2.push_back(x);
+                }
+            }
+            else if (row2.find(x[0]) != std::string::npos)
+            {
+                for (int i = 1; i < x.size(); i++)
+                {
+                    if (row2.find(x[i]) == std::string::npos) {
+                        break;
+                    }
+
+                    else if (i == x.size() - 1)
+                        words2.push_back(x);
+                }
+            }
+            else if (row3.find(x[0]) != std::string::npos)
+            {
+                for (int i = 1; i < x.size(); i++)
+                {
+                    if (row3.find(x[i]) == std::string::npos)
+                    {
+                        break;
+                    }
+                    else if (i == x.size() - 1)
+                        words2.push_back(x);
+                }
+            }
+        }
+        return words2;
+    }
+};
