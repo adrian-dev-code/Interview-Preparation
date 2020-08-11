@@ -1,0 +1,23 @@
+
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        string lastWord;
+        if (s.size() == 0) return 0;
+
+        if ((s[s.size() - 1]) != ' ')
+            s.push_back(' ');
+
+        for (int i = 0; i < s.size() - 1; i++)
+        {
+            lastWord.push_back(s[i]);
+            if (isalpha(s[i + 1]) && s[i] == ' ')
+            {
+                lastWord.clear();
+            }
+        }
+        lastWord.erase(std::remove(lastWord.begin(), lastWord.end(), ' '), lastWord.end());
+        cout << lastWord << endl;
+        return lastWord.size();
+    }
+};
