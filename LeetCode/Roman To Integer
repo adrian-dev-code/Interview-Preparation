@@ -1,0 +1,28 @@
+var romanToInt = function(s) {
+    
+    var romanNumbers = new Map();
+    
+    romanNumbers.set ('I',1);
+    romanNumbers.set ('V',5);
+    romanNumbers.set ('X',10);
+    romanNumbers.set ('L',50);
+    romanNumbers.set ('C',100);
+    romanNumbers.set ('D',500);
+    romanNumbers.set ('M',1000);
+    var sum=0;
+    for (var i=0;i<s.length;++i){
+        
+            //STARTIF
+            if(s[i]=='I' && s[i+1]=='V' || s[i]=='I' && s[i+1]=='X' || s[i]=='X' && s[i+1]=='L' ||s[i]=='X' && s[i+1]=='C' || s[i]=='C' && s[i+1]=='D' || s[i]=='C' && s[i+1]=='M'){
+                    if (i<=s.length-2){
+                        sum+=(romanNumbers.get(s[i+1])-romanNumbers.get(s[i]));
+                        i++;
+                    }
+                }
+            //ENDIF
+        
+         else
+       sum+=romanNumbers.get(s[i]);
+    }
+    return sum;
+};
