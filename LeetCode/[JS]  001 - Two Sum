@@ -1,0 +1,16 @@
+
+var twoSum = function(nums, target) {
+    var container = new Map();
+    var results = [];
+    for (var i = 0; i < nums.length; ++i) {
+        if (container.has(target - nums[i])) {
+
+            results.push(container.get(target - nums[i]));
+            results.push(i);
+            return results;
+
+        }
+        container.set(nums[i], i);
+    }
+}
+
