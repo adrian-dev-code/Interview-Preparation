@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int dimension = digits.size()-1;
+        if(dimension>=0 && digits[dimension]!=9)
+            digits[dimension]++;
+        else if(digits[dimension]==9 && dimension+1==1)
+            return {1,0};
+        else 
+        {
+
+            if(digits[dimension]==9)
+            {
+                while(dimension!=-1)
+                {
+                    if(digits[dimension]==9)
+                    {
+                        digits[dimension]=0;
+                    }
+                    else
+                    {
+                        digits[dimension]++;
+                        break;
+                    }
+                    if (digits[0]==0)
+                    {
+                        digits.insert(digits.begin(), 1);
+                    }
+                    dimension--;
+                }
+            }
+        }
+
+        return digits;
+    }
+};
+            
+        //1989  
