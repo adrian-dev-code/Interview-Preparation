@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int countLargestGroup(int n) {
+        map <int, int> numberPair;
+        
+        for (int i=1;i<=n;i++)
+        {
+          int sum=0;
+          int j=i;
+          while(j)
+          {
+              sum+=j%10;
+              j=j/10;
+          }
+            ++numberPair[sum];
+        }
+        int max = INT_MIN;
+        int count = 0;
+        for (auto &x: numberPair)
+        {
+            if(x.second > max)
+            {
+                max=x.second;
+            }
+
+        }
+        for (auto &y: numberPair)
+        {
+            if (y.second==max)
+                count++;
+        }
+        // <1,2> <2,2>, <3, 2> <4,1>...... <9,1>,
+        
+        return count;
+    }
+};
