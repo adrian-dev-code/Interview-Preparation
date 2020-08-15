@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        map <int, int> myMap;
+
+        for (auto& x:arr)
+        {
+            myMap[x]++;
+        }
+        int gasit=-1;
+        for (auto& x:myMap)
+        {
+            if(x.first ==x.second)
+            {
+                gasit = x.first;
+            }
+        }
+        return gasit;
+    }
+};
